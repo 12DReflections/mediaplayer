@@ -12,6 +12,7 @@ public class Player extends BorderPane {
 	MediaPlayer player;
 	MediaView view;
 	Pane mpane;
+	MediaBar bar;
 	
 	public Player(String file){
 		media = new Media(file);
@@ -22,6 +23,11 @@ public class Player extends BorderPane {
 		mpane.getChildren().add(view);
 		
 		setCenter(mpane);
+		
+		bar = new MediaBar(player);
+		setBottom(bar);
+		
+		setStyle("-fx-background-color: #bfc2c7");
 		
 		player.play();
 		
